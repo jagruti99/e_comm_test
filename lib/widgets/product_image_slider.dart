@@ -46,8 +46,6 @@ class _ProductImageCarouselState extends State<ProductImageCarousel> {
                           fit: BoxFit.cover,
                           loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) return child;
-
-                            // Show shimmer while loading
                             return Shimmer.fromColors(
                               baseColor: Colors.grey.shade300,
                               highlightColor: Colors.grey.shade100,

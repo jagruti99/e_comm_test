@@ -1,5 +1,7 @@
-import 'package:e_com_task/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
+import 'core/app_config.dart';
+import 'screens/influencer_list.dart';
+import 'screens/search_influencer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'E-commerce',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return AppConfig(
+      latlon: "29.3677642,47.9705378",
+      lang: "en",
+      child: MaterialApp(
+        title: 'Flutter-task',
+        theme: ThemeData(
+          useMaterial3: true,
+          colorSchemeSeed: Colors.teal,
+          brightness: Brightness.light,
+        ),
+        home: const InfluencerListScreen(),
+        routes: {
+          SearchInfluencerScreen.route: (_) => const SearchInfluencerScreen(),
+        },
       ),
-      home: const ProductDetailsScreen(),
     );
   }
 }
